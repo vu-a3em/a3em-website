@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research — A3EM</title>
+<meta name="description" content="Hardware, firmware, and embedded machine learning behind the A3EM animal-borne adaptive acoustic monitoring platform.">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M20 11v18M14 14.5v11M26 14.5v11M9 18v4M31 18v4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span>A3EM<span class="brand-sub">Acoustic Monitoring</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="research.html" class="active">Research</a>
+      <a href="deployments.html">Deployments</a>
+      <a href="publications.html">Publications</a>
+      <a href="team.html">Team</a>
+      <a href="education.html">Outreach</a>
+      <a href="code.html">Code</a>
+      <a class="external" href="https://github.com/vu-a3em" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <h1>Research &amp; Technical Approach</h1>
+    <p>A3EM combines a purpose-built low-power sensor board, highly configurable firmware, and on-device machine learning to make long-duration, animal-borne acoustic monitoring practical.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Hardware</div>
+      <h2>An 8-layer, 2.4-gram sensor board</h2>
+      <p>The sensor board was designed from the ground up for animal-borne deployment: small, light, cheap to produce, and efficient enough to run for months on a single battery.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="card"><h3>18 × 23 mm</h3><p>PCB footprint, 8-layer board</p></div>
+      <div class="card"><h3>2.4 g</h3><p>Board weight — light enough for small animals</p></div>
+      <div class="card"><h3>~$60&ndash;130</h3><p>Per-board cost (rose with 2026 tariff volatility)</p></div>
+      <div class="card"><h3>3.6 V</h3><p>Battery input, multi-stage regulation to 1.8 V core</p></div>
+    </div>
+
+    <div class="table-wrap" style="margin-top:2rem;">
+      <table>
+        <thead><tr><th>Spec</th><th>A3EM Sensor Board</th><th>AudioMoth (reference)</th></tr></thead>
+        <tbody>
+          <tr><td>MCU</td><td>Ambiq Apollo4 Plus</td><td>ARM Cortex-M0+</td></tr>
+          <tr><td>Clock speed</td><td>96&ndash;192 MHz (~4 µA/MHz)</td><td>48 MHz (~62 µA/MHz)</td></tr>
+          <tr><td>Non-volatile memory</td><td>~2 MB MRAM (~8x)</td><td>256 KB Flash</td></tr>
+          <tr><td>RAM</td><td>~2.75 MB (~85x)</td><td>32 KB SRAM</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:1.5rem;">The Apollo4 Plus's DSP instructions and integrated low-power audio ADC — with a programmable gain array spanning 0&ndash;24 dB — make it well suited to real-time audio analysis while sipping power. The board supports analog electret, analog MEMS, and digital PDM microphones, an onboard ADXL345 IMU and magnetic sensor for activation, an external GPS-collar header, and control of an external actuator such as a VHF transmitter.</p>
+
+    <div class="callout">
+      <strong>2026 update — moving to digital microphones.</strong> Field deployments on bighorn sheep and caribou surfaced a cold-temperature artifact (crackling, static, aliasing below roughly 5&ndash;10°C) traced to instability in the Ambiq MCU's analog front end — not something firmware could fully correct. Digital PDM microphones (10&ndash;10,000 Hz response) eliminated the artifact in freezer testing and improved signal-to-noise even at ~30 dB of gain. A 3D-printed microphone holder sandwiching a Gore acoustic vent and waterproof foam, plus a chamfered port, steel-mesh cover, and open-cell foam plug, keep the digital mic protected and wind noise down. The analog path remains fully supported.
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Firmware</div>
+      <h2>Configurable in the field, by researchers of any skill level</h2>
+      <p>Firmware configuration is deliberately three-tiered so that a field researcher — not just a firmware engineer — can provision a device correctly.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><h3>1. Base firmware</h3><p>Full configuration support compiled into flash memory on the device.</p></div>
+      <div class="card"><h3>2. Runtime config file</h3><p>An editable, human-readable configuration file on the SD card used for data storage.</p></div>
+      <div class="card"><h3>3. Graphical dashboard</h3><p>A configuration dashboard so researchers can provision devices without hand-editing text files.</p></div>
+    </div>
+
+    <div class="section-head" style="margin-top:2.5rem;">
+      <h3 style="font-family:var(--font-serif);">Configuration options</h3>
+    </div>
+    <div class="grid grid-3">
+      <ul class="plain">
+        <li>Device ID</li>
+        <li>GPS availability</li>
+        <li>Status LED active time</li>
+        <li>Microphone type &amp; gain</li>
+      </ul>
+      <ul class="plain">
+        <li>Magnetic activation settings</li>
+        <li>Deployment schedule &amp; phases</li>
+        <li>RTC time alignment</li>
+        <li>VHF beacon settings</li>
+      </ul>
+      <ul class="plain">
+        <li>Audio clip properties</li>
+        <li>Recording mode — continuous, schedule, interval, threshold, or intelligent</li>
+        <li>IMU recording settings</li>
+      </ul>
+    </div>
+
+    <div class="section-head" style="margin-top:2.5rem;">
+      <h3 style="font-family:var(--font-serif);">Power optimization (2026)</h3>
+      <p>Firmware work this period acted directly on the finding from our published paper that SD-card writes dominate the power budget, batching and time-aligning writes and combining audio, log, and IMU writes into single SD wake-ups.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Configuration</th><th>Baseline current</th><th>Optimized current</th><th>Reduction</th></tr></thead>
+        <tbody>
+          <tr><td>Continuous recording (LEDs off)</td><td>7.878 mA</td><td>&mdash;</td><td>&mdash;</td></tr>
+          <tr><td>8 kHz audio + 50 Hz IMU, 60s clips</td><td>&mdash;</td><td>2.08 mA</td><td>~3.8x</td></tr>
+          <tr><td>16 kHz audio + IMU</td><td>&mdash;</td><td>2.13 mA</td><td>~3.7x</td></tr>
+          <tr><td>Low-power listening mode</td><td>&mdash;</td><td>~1.5 mA</td><td>&gt;5x</td></tr>
+          <tr><td>Deep-sleep / magnet-wait</td><td>~0.5 mA</td><td>~300 µA</td><td>~1.7x</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:1rem;">With a digital microphone and a 7,000 mAh pack, the deployment-planning model now estimates ~158 days of battery life for uncompressed 8 kHz audio — at which point a 128 GB SD card (~95 days) becomes the limiting factor rather than the battery. Embedded OGG Opus compression extends storage to roughly 600 days at 16 kbps while keeping battery life above ~120 days, and devices are now routinely paired with 256&ndash;512 GB cards. An optional silence/relevance filter adds further headroom, saving up to ~75% under favorable thresholds.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Adaptive Data Collection &amp; Embedded ML</div>
+      <h2>Deciding what's worth keeping, on the device, in real time</h2>
+      <p>Continuous recording is simple but wasteful: it depletes power and storage quickly and leaves the hard work of finding meaningful events to offline post-processing. A3EM instead performs in-situ relevance assessment using lightweight, low-power, fully unsupervised learning.</p>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Variational autoencoder + online clustering</h3>
+        <p>Incoming audio is downsampled, segmented, and reduced to a compact latent representation by a convolutional VAE optimized for embedded deployment. A quantized version of the model occupies just <strong>24 KB</strong> — small enough for a resource-constrained microcontroller. An online clustering algorithm then compares each new embedding against a fixed-size set of cluster centers to flag novel, information-rich segments for retention while discarding redundant ones.</p>
+      </div>
+      <div class="card">
+        <h3>Validated in simulation</h3>
+        <p>A custom simulation environment replayed manually labeled clips (urban recordings and ecological sound databases) across 24-hour and 7-day virtual deployments with deliberately imbalanced event classes. Both the full and quantized VAE pipelines achieved near-equal representation of all classes in the filtered output — successfully surfacing rare events — outperforming simpler spectral-flux and RMS/zero-crossing-rate heuristics, which remain useful lower-power fallbacks where filtering precision can be traded for efficiency.</p>
+      </div>
+      <div class="card">
+        <h3>Elephant rumble filter</h3>
+        <p>A frequency-windowed RMS thresholding filter, tuned via threshold sweeps against the retention/power trade-off, achieved roughly <strong>98&ndash;99% precision</strong> and <strong>75&ndash;85% recall</strong> on animal-borne elephant rumble data in manual validation.</p>
+      </div>
+      <div class="card">
+        <h3>On-device classification</h3>
+        <p>A compressed (~500 KB) YAMNet-derived classifier runs in real time on the Apollo4, and inference is migrating from TensorFlow Lite Micro toward ARM CMSIS primitives. Since firmware power savings now make continuous recording far cheaper, on-device classification is increasingly aimed at <em>post-deployment</em> filtering and auto-annotation rather than in-field power savings.</p>
+      </div>
+      <div class="card">
+        <h3>Code-free classifier workflow</h3>
+        <p>A prototype workflow built around the BirdNET Analyzer GUI and Raven Pro metadata conventions lets domain scientists create and refine custom classifiers without writing code — the practical embodiment of the semi-supervised learning goal.</p>
+      </div>
+      <div class="card">
+        <h3>Anti-poaching gunshot detection</h3>
+        <p>A multi-microphone gunshot-detection experiment showed the board and its digital microphones capturing gunshot signatures comparably to a reference microphone — a promising direction for anti-poaching applications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>A3EM</h4>
+        <p>Animal-Borne Adaptive Acoustic Environmental Monitoring — an NSF-sponsored Cyber-Physical Systems project developing real-time, adaptive acoustic sensing for wildlife research and conservation.</p>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="deployments.html">Deployments</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="team.html">Team &amp; Partners</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <ul>
+          <li><a href="https://github.com/vu-a3em" target="_blank" rel="noopener">GitHub Organization</a></li>
+          <li><a href="https://www.isis.vanderbilt.edu/projects/a3em-animal-borne-adaptive-acoustic-environmental-monitoring" target="_blank" rel="noopener">ISIS Project Page</a></li>
+          <li><a href="education.html">Outreach &amp; Education</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>This material is based upon work supported by the National Science Foundation under Grant No. 2312391. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.</p>
+      <p>&copy; <span id="year"></span> A3EM Project, Vanderbilt University &amp; Colorado State University.</p>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

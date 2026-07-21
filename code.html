@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code — A3EM</title>
+<meta name="description" content="Open-source hardware designs and software repositories from the A3EM animal-borne adaptive acoustic monitoring project.">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M20 11v18M14 14.5v11M26 14.5v11M9 18v4M31 18v4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span>A3EM<span class="brand-sub">Acoustic Monitoring</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="deployments.html">Deployments</a>
+      <a href="publications.html">Publications</a>
+      <a href="team.html">Team</a>
+      <a href="education.html">Outreach</a>
+      <a href="code.html" class="active">Code</a>
+      <a class="external" href="https://github.com/vu-a3em" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-header">
+  <div class="container">
+    <h1>Open-Source Code &amp; Hardware</h1>
+    <p>All hardware design files and software developed under this project are open-sourced on GitHub under the <a href="https://github.com/vu-a3em" target="_blank" rel="noopener">vu-a3em</a> organization.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="grid grid-3">
+
+      <div class="repo-card">
+        <div class="repo-name">a3em-firmware</div>
+        <span class="lang"><span class="lang-dot" style="background:#555"></span>C</span>
+        <p>Apollo4 firmware for the A3EM sensor board — the base configuration layer, recording modes, and low-power peripheral management described on the <a href="research.html">Research page</a>.</p>
+        <a href="https://github.com/vu-a3em/a3em-firmware" target="_blank" rel="noopener">github.com/vu-a3em/a3em-firmware ↗</a>
+      </div>
+
+      <div class="repo-card">
+        <div class="repo-name">a3em-ai-firmware</div>
+        <span class="lang"><span class="lang-dot" style="background:#8a8a8a"></span>Embedded ML</span>
+        <p>Firmware integration of on-device machine learning — quantized classifiers and adaptive filtering running directly on the sensor board.</p>
+        <a href="https://github.com/vu-a3em/a3em-ai-firmware" target="_blank" rel="noopener">github.com/vu-a3em/a3em-ai-firmware ↗</a>
+      </div>
+
+      <div class="repo-card">
+        <div class="repo-name">a3em-ai</div>
+        <span class="lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        <p>AI training and deployment tools for the A3EM project — model training, quantization, and export pipelines feeding the embedded classifiers.</p>
+        <a href="https://github.com/vu-a3em/a3em-ai" target="_blank" rel="noopener">github.com/vu-a3em/a3em-ai ↗</a>
+      </div>
+
+      <div class="repo-card">
+        <div class="repo-name">a3em-clustering</div>
+        <span class="lang"><span class="lang-dot" style="background:#DA5B0B"></span>Jupyter Notebook</span>
+        <p>Research notebooks for the VAE-based encoder and online clustering novelty-detection approach used in adaptive data collection.</p>
+        <a href="https://github.com/vu-a3em/a3em-clustering" target="_blank" rel="noopener">github.com/vu-a3em/a3em-clustering ↗</a>
+      </div>
+
+      <div class="repo-card">
+        <div class="repo-name">a3em-dashboard</div>
+        <span class="lang"><span class="lang-dot" style="background:#3572A5"></span>Python</span>
+        <p>Python-based configuration dashboard for A3EM deployments — the graphical provisioning tool referenced in the firmware's three-tier configuration hierarchy.</p>
+        <a href="https://github.com/vu-a3em/a3em-dashboard" target="_blank" rel="noopener">github.com/vu-a3em/a3em-dashboard ↗</a>
+      </div>
+
+      <div class="repo-card">
+        <div class="repo-name">a3em-webapp</div>
+        <span class="lang"><span class="lang-dot" style="background:#3178c6"></span>TypeScript</span>
+        <p>Web-based configuration dashboard for A3EM deployments — a browser-based alternative for provisioning and managing devices.</p>
+        <a href="https://github.com/vu-a3em/a3em-webapp" target="_blank" rel="noopener">github.com/vu-a3em/a3em-webapp ↗</a>
+      </div>
+
+      <div class="repo-card">
+        <div class="repo-name">BirdNET-Analyzer <span class="tag" style="margin-left:0.4rem;">fork</span></div>
+        <span class="lang"><span class="lang-dot" style="background:#8a8a8a"></span>Bioacoustics ML</span>
+        <p>A tracked fork of the BirdNET Analyzer, underpinning the project's code-free custom-classifier workflow built around its GUI and Raven Pro metadata conventions.</p>
+        <a href="https://github.com/vu-a3em/BirdNET-Analyzer" target="_blank" rel="noopener">github.com/vu-a3em/BirdNET-Analyzer ↗</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <h2>Contributing</h2>
+      <p>Issues, pull requests, and questions are welcome on any of the repositories above. For questions about the hardware or a potential field collaboration, see the <a href="team.html">Team page</a> for contacts.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>A3EM</h4>
+        <p>Animal-Borne Adaptive Acoustic Environmental Monitoring — an NSF-sponsored Cyber-Physical Systems project developing real-time, adaptive acoustic sensing for wildlife research and conservation.</p>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="deployments.html">Deployments</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="team.html">Team &amp; Partners</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <ul>
+          <li><a href="https://github.com/vu-a3em" target="_blank" rel="noopener">GitHub Organization</a></li>
+          <li><a href="https://www.isis.vanderbilt.edu/projects/a3em-animal-borne-adaptive-acoustic-environmental-monitoring" target="_blank" rel="noopener">ISIS Project Page</a></li>
+          <li><a href="education.html">Outreach &amp; Education</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>This material is based upon work supported by the National Science Foundation under Grant No. 2312391. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.</p>
+      <p>&copy; <span id="year"></span> A3EM Project, Vanderbilt University &amp; Colorado State University.</p>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A3EM — Animal-Borne Adaptive Acoustic Environmental Monitoring</title>
+<meta name="description" content="A3EM is an NSF-sponsored Cyber-Physical Systems project developing an animal-borne adaptive acoustic monitoring platform for real-time wildlife research and conservation.">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M20 11v18M14 14.5v11M26 14.5v11M9 18v4M31 18v4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      <span>A3EM<span class="brand-sub">Acoustic Monitoring</span></span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="main-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="research.html">Research</a>
+      <a href="deployments.html">Deployments</a>
+      <a href="publications.html">Publications</a>
+      <a href="team.html">Team</a>
+      <a href="education.html">Outreach</a>
+      <a href="code.html">Code</a>
+      <a class="external" href="https://github.com/vu-a3em" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div>
+      <div class="eyebrow">NSF Cyber-Physical Systems Project</div>
+      <h1>Real-time acoustic monitoring, carried by the animals themselves.</h1>
+      <p class="lead">A3EM (Animal-Borne Adaptive Acoustic Environmental Monitoring) is a low-power, machine-learning-enabled sensor platform that rides on wild and captive animals to observe their environment and behavior — adapting in real time to what it hears instead of just recording everything and sorting it out later.</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="research.html">Explore the Research</a>
+        <a class="btn btn-outline" href="https://github.com/vu-a3em" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="100" cy="100" r="96" fill="none" stroke="rgba(244,241,232,0.25)" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="70" fill="none" stroke="rgba(244,241,232,0.2)" stroke-width="1.5"/>
+        <g stroke="#e2a53a" stroke-width="5" stroke-linecap="round">
+          <line x1="60" y1="82" x2="60" y2="118"/>
+          <line x1="78" y1="66" x2="78" y2="134"/>
+          <line x1="96" y1="50" x2="96" y2="150"/>
+          <line x1="114" y1="70" x2="114" y2="130"/>
+          <line x1="132" y1="88" x2="132" y2="112"/>
+          <line x1="150" y1="94" x2="150" y2="106"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container">
+    <div class="stat">
+      <div class="num">7</div>
+      <div class="label">Species Instrumented</div>
+    </div>
+    <div class="stat">
+      <div class="num">3</div>
+      <div class="label">Continents in the Field</div>
+    </div>
+    <div class="stat">
+      <div class="num">7</div>
+      <div class="label">Open-Source Repositories</div>
+    </div>
+    <div class="stat">
+      <div class="num">~158</div>
+      <div class="label">Max Days per Deployment</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">The Problem</div>
+      <h2>Static recorders can't keep up with wild animals.</h2>
+      <p>Most acoustic wildlife monitoring today relies on stationary recorders and offline processing after the fact — an approach that doesn't scale, can't react in real time, and often exhausts battery and storage long before it captures the events that matter. A3EM instead puts a small, adaptive, machine-learning-capable sensor directly on the animal, so the system can learn what's worth keeping as it happens.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Project Goals</div>
+      <h2>Six goals driving the platform</h2>
+      <p>A3EM combines embedded machine learning, resource-aware firmware, and field hardware design to make animal-borne acoustic sensing practical at scale.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="goal-num">1</div>
+        <h3>Dynamic Sensing Infrastructure</h3>
+        <p>Embedded ML that learns and classifies acoustic events in real time, adapting to new and unexpected sounds rather than relying on predefined event types.</p>
+      </div>
+      <div class="card">
+        <div class="goal-num">2</div>
+        <h3>Semi-Supervised Learning Interface</h3>
+        <p>Tools that let domain experts validate, relabel, and give feedback on system performance, continuously improving the network without exhaustive pre-labeling.</p>
+      </div>
+      <div class="card">
+        <div class="goal-num">3</div>
+        <h3>Resource-Efficient Embedded ML</h3>
+        <p>Model compression and quantization so deep learning models can run for months on a coin-sized power budget aboard a wearable device.</p>
+      </div>
+      <div class="card">
+        <div class="goal-num">4</div>
+        <h3>Adaptive Data Collection</h3>
+        <p>Multi-objective optimization deciding what to store, transmit, or discard based on event importance, remaining power, storage, and network availability.</p>
+      </div>
+      <div class="card">
+        <div class="goal-num">5</div>
+        <h3>Prototype &amp; Field Testing</h3>
+        <p>A working hardware/firmware prototype validated across real deployments on seven species across three continents.</p>
+      </div>
+      <div class="card">
+        <div class="goal-num">6</div>
+        <h3>High School Curriculum</h3>
+        <p>A NetsBlox-based summer camp curriculum introducing programming through wildlife conservation technology, to broaden participation in STEM.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Recent Progress</div>
+      <h2>What's new</h2>
+    </div>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Digital microphones &amp; a 3.8x power cut</h3>
+        <p>The platform moved to digital PDM microphones after tracing a cold-weather recording artifact to the analog front end, and firmware optimization cut average current from 7.9 mA to roughly 2.1 mA — shifting the deployment limit from battery life to SD card capacity.</p>
+      </div>
+      <div class="card">
+        <h3>First-ever forest elephant deployment</h3>
+        <p>Alongside ongoing savanna elephant, bighorn sheep, and caribou work, the project added first-time deployments on forest elephants (Central African Republic) and brand-new collaborations on brown bear (Sweden) and white-lipped peccary (Costa Rica).</p>
+      </div>
+      <div class="card">
+        <h3>Published system paper</h3>
+        <p>"Animal-Borne Adaptive Acoustic Monitoring" appeared in the <em>Journal of Sensor and Actuator Networks</em> (2025), detailing the hardware, firmware, and unsupervised adaptive-filtering approach. <a href="publications.html">See publications →</a></p>
+      </div>
+      <div class="card">
+        <h3>International outreach</h3>
+        <p>A week-long acoustic monitoring workshop for 53 participants in Thailand, plus a second Nashville high school summer camp, and a funded WildLabs proposal to bring the platform to a broader community of ecologists.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>A3EM</h4>
+        <p>Animal-Borne Adaptive Acoustic Environmental Monitoring — an NSF-sponsored Cyber-Physical Systems project developing real-time, adaptive acoustic sensing for wildlife research and conservation.</p>
+      </div>
+      <div>
+        <h4>Project</h4>
+        <ul>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="deployments.html">Deployments</a></li>
+          <li><a href="publications.html">Publications</a></li>
+          <li><a href="team.html">Team &amp; Partners</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <ul>
+          <li><a href="https://github.com/vu-a3em" target="_blank" rel="noopener">GitHub Organization</a></li>
+          <li><a href="https://www.isis.vanderbilt.edu/projects/a3em-animal-borne-adaptive-acoustic-environmental-monitoring" target="_blank" rel="noopener">ISIS Project Page</a></li>
+          <li><a href="education.html">Outreach &amp; Education</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>This material is based upon work supported by the National Science Foundation under Grant No. 2312391. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.</p>
+      <p>&copy; <span id="year"></span> A3EM Project, Vanderbilt University &amp; Colorado State University.</p>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
