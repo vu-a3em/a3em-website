@@ -396,6 +396,85 @@ tr:last-child td { border-bottom: none; }
 .deployment-stats div strong { display: block; color: var(--text); font-size: 1rem; }
 .deployment-stats div span { color: var(--text-muted); }
 
+/* Deployment photo slideshow */
+.slideshow { max-width: 900px; margin: 0 auto; }
+
+.slide-frame {
+  position: relative;
+  background: #0d120e;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.slide-frame img {
+  width: 100%;
+  height: min(64vh, 560px);
+  object-fit: contain;
+  margin: 0 auto;
+  background: #0d120e;
+  transition: opacity 0.25s ease;
+}
+
+.slide-frame img.is-loading { opacity: 0.35; }
+
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.slide-btn:hover { background: rgba(0, 0, 0, 0.72); }
+.slide-btn:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+.slide-btn.prev { left: 0.8rem; }
+.slide-btn.next { right: 0.8rem; }
+
+.slide-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.3rem;
+  margin-top: 1rem;
+}
+
+.slide-counter {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.slide-play {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.slide-play:hover { color: var(--primary); border-color: var(--primary-light); }
+
+@media (max-width: 500px) {
+  .slide-frame img { height: 56vh; }
+  .slide-btn { width: 38px; height: 38px; font-size: 1.4rem; }
+}
+
 /* People */
 .person {
   display: flex;
