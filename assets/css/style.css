@@ -530,6 +530,41 @@ tr:last-child td { border-bottom: none; }
 
 .lang-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
 
+/* Media split (text + image) — stays side-by-side until quite narrow */
+.media-split {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.media-split .section-head { margin-bottom: 0; flex: 1 1 320px; }
+.media-split .figure { flex: 0 0 280px; max-width: 280px; }
+
+@media (max-width: 620px) {
+  .media-split { gap: 1.4rem; }
+  .media-split .figure { flex-basis: 100%; max-width: 320px; margin: 0 auto; }
+}
+
+/* Figure with framed image + caption */
+.figure { margin: 0; }
+
+.figure img {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: var(--surface);
+  padding: 0.6rem;
+}
+
+.figure figcaption {
+  margin-top: 0.7rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
 /* Blockquote / callout */
 .callout {
   border-left: 4px solid var(--accent);
